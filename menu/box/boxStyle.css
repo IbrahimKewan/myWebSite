@@ -1,0 +1,126 @@
+@import "compass/css3";
+
+::-webkit-scrollbar
+{
+  width: 0px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #eaf6f6;
+  font-family: helvetica;
+}
+
+#wrapper{
+  width: 900px;
+  margin: 200px auto;
+  height: 100%;
+}
+
+/* cube wrapper */
+
+
+.cube-wrapper{
+  position: relative;
+  -webkit-perspective: 500;
+  -webkit-perspective-origin: 50% 100px;
+}
+
+/* keyframes for rotating annimation */
+
+
+@-webkit-keyframes spin{
+  from{ -webkit-transform: rotateY(0); }
+  to{ -webkit-transform: rotateY(360deg);   }
+}
+
+.cube{
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: spin 4s infinite       linear;
+  -webkit-transition: all 1s linear;
+}
+
+
+/* cube sides */
+
+
+.side{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: block;
+  background: rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 30px            rgba(0,0,0,0.2);
+  font-size: 20px;
+  text-align: center;
+  line-height: 200px;
+  color: rgba(0,0,0,0.5);
+  text-transform: uppercase; -webkit-transition: all 2s linear;
+  
+}
+
+.back{
+  -webkit-transform: translateZ(-100px)rotateY(180deg);
+}
+
+.right{
+  -webkit-transform: rotateY(-270deg) translateX(100px);
+  -webkit-transform-origin: top right;
+}
+
+.left{
+  -webkit-transform: rotateY(270deg) translateX(-100px); 
+  -webkit-transform-origin: center left;
+}
+
+.top{
+  -webkit-transform: rotateX(-90deg)
+    translateY(-100px);
+  -webkit-transform-origin: top center;
+}
+
+.bottom{
+  -webkit-transform: rotateX(90deg)
+    translateY(100px);
+  -webkit-transform-origin: bottom center;
+}
+
+.front{
+  -webkit-transform: translateZ(100px);
+}
+
+@-webkit-keyframes typing {
+  from { width: 0 }
+  to { width: 7em }
+}
+
+@-webkit-keyframes blink{
+  from, to { border-color: transparent }
+  50% { border-color: black}
+}
+
+.logo_text{
+  position: absolute;
+  top: 20px;
+  left: 25%;
+  font-family: helvetica;
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .1em solid black;
+  line-height: 1px;
+  -webkit-animation: typing 3s steps
+    (13, end),blink 1s step-end infinite;
+}
+
+.logo_text .yellow{
+  font-weight: bold;
+  color: #FFCD61;
+}
+
+
